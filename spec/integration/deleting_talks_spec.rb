@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-feature "Deleting items" do
-  scenario "Deleting an item" do
-    Factory(:item, :name => "My Test Item")
+feature "Deleting talks" do
+  scenario "Deleting a talk" do
+    Factory(:talk, :title => "My Test Talk")
     visit '/'
-    click_link "My Test Item"
-    click_link "Delete Item"
-    page.should have_content("Item has been deleted.")
+    click_link "My Test Talk"
+    click_link "Delete Talk"
+    page.should have_content("Talk has been deleted.")
 
     visit '/'
-    page.should_not have_content("My Test Item")
+    page.should_not have_content("My Test Talk")
   end
 end
 

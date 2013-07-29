@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-feature "Viewing items" do
-  scenario "Listing all items" do
-    item = Factory.create(:item, :name => "Test Item")
+feature "Viewing talks" do
+  scenario "Listing all talks" do
+    talk = Factory.create(:talk, :title => "Test Talk")
     visit '/'
-    click_link "Test Item"
-    page.current_url.should == item_url(item)
+    click_link "Test Talk"
+    page.current_url.should == talk_url(talk)
   end
 end
 
