@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-feature "Viewing locations" do
-  scenario "Listing all locations" do
-    location = Factory.create(:location, :name => "Test Location")
+feature "Viewing Attendees" do
+  scenario "Listing all attendees" do
+    attendee = Factory.create(:attendee, :name => "Test Attendee")
     visit '/'
-    click_link "See all locations"
-    click_link "Test Location"
-    page.current_url.should == location_url(location)
+    click_link "See all attendees"
+    click_link "Test Attendee"
+    page.current_url.should == attendee_url(attendee)
   end
 end
 

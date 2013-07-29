@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-feature "Deleting locations" do
-  scenario "Deleting a location" do
-    Factory(:location, :name => "My Test Location")
+feature "Deleting attendees" do
+  scenario "Deleting an attendee" do
+    Factory(:attendee, :name => "My Test Attendee")
     visit '/'
-    click_link "See all locations"
-    click_link "My Test Location"
-    click_link "Delete Location"
-    page.should have_content("Location has been deleted.")
+    click_link "See all attendees"
+    click_link "My Test Attendee"
+    click_link "Delete Attendee"
+    page.should have_content("Attendee has been deleted.")
 
     visit '/'
-    page.should_not have_content("My Test Location")
+    page.should_not have_content("My Test Attendee")
   end
 end
 

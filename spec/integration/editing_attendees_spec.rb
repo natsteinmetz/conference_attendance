@@ -1,25 +1,25 @@
 require 'spec_helper'
 
-feature "Editing Locations" do
+feature "Editing Attendees" do
 
   before do
-    Factory(:location, :name => "Test Location")
+    Factory(:attendee, :name => "Test Attendee")
     visit '/'
-    click_link "See all locations"
-    click_link "Test Location"
-    click_link "Edit Location"
+    click_link "See all attendees"
+    click_link "Test Attendee"
+    click_link "Edit Attendee"
   end
 
-  scenario "Updating a location" do
-    fill_in "Name", :with => "Test Location beta"
-    click_button "Update Location"
-    page.should have_content("Location has been updated.")
+  scenario "Updating an attendee" do
+    fill_in "Name", :with => "Test Attendee beta"
+    click_button "Update Attendee"
+    page.should have_content("Attendee has been updated.")
   end
 
-  scenario "Updating a location with invalid attributes is bad" do
+  scenario "Updating an attendee with invalid attributes is bad" do
     fill_in "Name", :with => ""
-    click_button "Update Location"
-    page.should have_content("Location has not been updated.")
+    click_button "Update Attendee"
+    page.should have_content("Attendee has not been updated.")
   end
 
 end
