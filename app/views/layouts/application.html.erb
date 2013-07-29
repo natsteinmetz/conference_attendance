@@ -14,7 +14,8 @@
 </head>
 <body>
 
-  <h2>Conference Attendance Management</h2>
+  <h1>Conference Attendance Management</h1>
+  <br>
 
   <% flash.each do |key, value| %>
     <div class='flash' id='<%= key %>'>
@@ -22,8 +23,12 @@
     </div>
   <% end %>
 
+  <br>
+
 <%= yield %>
 
+  <br>
+  <br>
   <div>
     <hr>
     <%= link_to "See all talks", talks_path(:talk) %> |

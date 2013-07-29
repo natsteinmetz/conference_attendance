@@ -1,8 +1,13 @@
 <%= link_to "New Talk", new_talk_path %>
+<br>
+<br>
 <h2>Talks</h2>
+<br>
 <ul>
+  <br>
   <% @talks.each do |talk| %>
     <li><%= link_to talk.title, talk %></li>
+    <br>
   <% end %>
 </ul>
 

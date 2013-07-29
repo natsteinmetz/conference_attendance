@@ -1,13 +1,14 @@
-<h2>Add A Talk Attendance</h2>
+<h2>Add Talk Attendances</h2>
 
 <%= form_for(@attendance) do |f| %>
   <p>
   <%= f.label :talk, "Talk" %>
-  <% talk = @talks.map {|talk| [talk.title, talk.id] }%>
+  <% talks = @talks.map {|talk| [talk.title, talk.id] }%>
   <%= f.select(:talk_id, options_for_select(talks)) %> <br>
 
   <%= f.label :presenter, "Presenter" %>
-  <%= f.radio_field :presenter %>
+  <%= f.radio_button :presenter, :true %><label>Yes</label>
+  <%= f.radio_button :presenter, :false, checked: true %><label>No</label>
   </p>
 
   <p>

@@ -1,13 +1,33 @@
 
 <% title(@attendee.name, "Attendees") %>
 <h2><%= @attendee.name %> </h2>
-<%= link_to "Edit Attendee", edit_attendee_path(@attendee) %>
+Email: <%= @attendee.email %> |
+Affiliation: <%= @attendee.affiliation %>
+<br>
+<br>
+<%= link_to "Edit Attendee", edit_attendee_path(@attendee) %> |
 <%= link_to "Delete Attendee", attendee_path(@attendee),
     :method => :delete,
     :confirm => "Are you sure you want to delete this attendee?" %>
+<br>
+<br>
+<h4>Attended talks:</h4>
+<br>
+<ul style="height: 50px">
+  <% @attendee.talks.each do |talk| %>
+    <li style="height: 25px"><%= link_to talk.title, talk_path %>  |
+      <% talk.attendances.each do |attendance| %>
+        <% if attendance.attendee_id == @attendee.id %>
+          <%= link_to "Remove Talk", attendance_path(attendance),
+            :method => :delete,
+            :confirm => "Are you sure you want to remove this talk from attended talks?" %> </li>
+        <% end %>
+      <% end %>
+  <% end %>
+</ul>
 
+<br>
 <div>
-  <%= link_to "Add talk", new_attendance_path %> |
-  <%= link_to "Remove talk", attendance_path(@attendee), :method => :delete, :confirm => "Are you sure you want to remove this talk?" %>
+  <%= link_to "Add Talk", new_attendance_path %>
 </div>
 

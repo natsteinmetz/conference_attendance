@@ -49,4 +49,5 @@ private
       flash[:alert] = "The talk you were looking for could not be found."
       redirect_to talks_path
   end
+
 end

@@ -4,7 +4,7 @@ ConferenceAttendance::Application.routes.draw do
 
   resources :talks
   resources :attendees
-  resources :attendance
+  resources :attendances
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
