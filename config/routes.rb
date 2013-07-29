@@ -1,4 +1,11 @@
 ConferenceAttendance::Application.routes.draw do
+
+  root :to => "talks#index"
+
+  resources :talks
+  resources :attendees
+  resources :attendance
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

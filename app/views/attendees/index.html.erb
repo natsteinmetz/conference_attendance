@@ -1,0 +1,8 @@
+<%= link_to "New Attendee", new_attendee_path %>
+<h2>Attendees</h2>
+<ul>
+  <% @attendees.each do |attendee| %>
+    <li><%= link_to attendee.name, attendee %></li>
+  <% end %>
+</ul>
+

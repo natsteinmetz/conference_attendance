@@ -1,0 +1,23 @@
+<h2>Add A Talk Attendance</h2>
+
+<%= form_for(@attendance) do |f| %>
+  <p>
+  <%= f.label :talk, "Talk" %>
+  <% talk = @talks.map {|talk| [talk.title, talk.id] }%>
+  <%= f.select(:talk_id, options_for_select(talks)) %> <br>
+
+  <%= f.label :presenter, "Presenter" %>
+  <%= f.radio_field :presenter %>
+  </p>
+
+  <p>
+  <%= f.label :attendee, "Attendee" %>
+  <% attendees = @attendees.map {|attendee| [attendee.name, attendee.id] }%>
+  <%= f.select(:attendee_id, options_for_select(attendees)) %> <br>
+  </p>
+
+  <%= f.submit "Submit" %>
+
+<% end -%>
+
+

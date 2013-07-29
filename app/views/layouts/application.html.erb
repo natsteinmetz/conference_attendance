@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ConferenceAttendance</title>
+  <title>
+    <% if content_for?(:title) %>
+      <%= yield(:title) %>
+    <% else %>
+      Conference Attendance
+    <% end %>
+  </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+  <h2>Conference Attendance Management</h2>
+
+  <% flash.each do |key, value| %>
+    <div class='flash' id='<%= key %>'>
+      <%= value %>
+    </div>
+  <% end %>
+
 <%= yield %>
+
+  <div>
+    <hr>
+    <%= link_to "See all talks", talks_path(:talk) %> |
+    <%= link_to "See all attendees", attendees_path(:attendee) %>
+  </div>
 
 </body>
 </html>

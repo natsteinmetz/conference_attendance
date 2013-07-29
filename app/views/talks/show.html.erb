@@ -1,0 +1,12 @@
+
+<% title(@talk.title, "Talks") %>
+<h2><%= @talk.title %> </h2>
+<%= link_to "Edit Talk", edit_talk_path(@talk) %> |
+<%= link_to "Delete Talk", talk_path(@talk), :method => :delete,
+:confirm => "Are you sure you want to delete this talk?" %>
+<div>
+  <%= link_to "Add attendee", new_attendance_path %> |
+  <%= link_to "Remove attendee", attendance_path(@talk), :method => :delete, :confirm => "Are you sure you want to remove this attendee?" %>
+</div>
+
+
